@@ -1,7 +1,7 @@
 import os, time, datetime
 import multiprocessing
 
-SESSION_LENGTH = 60 # in minutes
+SESSION_LENGTH = 240 # in minutes
 USED_TOKEN = multiprocessing.Value('i', 0) # a global variable. makes sure we call the worker only once
 
 def clock():
