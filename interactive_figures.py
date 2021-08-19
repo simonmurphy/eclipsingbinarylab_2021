@@ -283,7 +283,7 @@ class MassRadiusDiagram(widgets.HBox):
         
         # Plot 1 Gyr isochrone over restricted range of masees
         mass,radius,ages = isochrones.BHAC15([1000],[0.05,0.8])
-        self.isochrones.append(plt.plot(mass,radius,'k-',color='k',zorder=0,lw=1,alpha=0.8)[0])
+        self.isochrones.append(plt.plot(mass,radius,'-',color='k',zorder=0,lw=1,alpha=0.8)[0])
         self.isochrones.append(plt.text(mass[-1]+0.01,radius[-1]-0.02,'MS',ha='left',va='center',color='k',fontsize=9))
 
         # Draw the adjustable isochrone
