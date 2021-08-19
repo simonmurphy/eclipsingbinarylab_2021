@@ -61,11 +61,11 @@ class RVCurve(widgets.HBox):
 
         # Initital parameters
         self._t0 = 8101.0
-        self._P = 0.8589
+        self._P = 0.8
         self._k1 = 50.0
-        self._k2 = 50.0
+        self._k2 = 100.0
         self._vsys = 0.0
-        self._e = 0.0
+        self._e = 0.5
         self._w = 0.0
 
         # Intial phases
@@ -183,7 +183,7 @@ class RVCurve(widgets.HBox):
 
 class LightCurve(widgets.HBox):
         
-    def __init__(self, t, flux, P=1.0, t0=8468.287, dP=1e-3):
+    def __init__(self, t, flux, P=1.0, t0=8101.0, dP=1e-3):
         super().__init__()
         output = widgets.Output()
 
