@@ -243,7 +243,7 @@ class LightCurve(widgets.HBox):
 
 
         # Add to children
-        self.children = [output,controls]        
+        self.children = [widgets.HBox([output,controls])]        
 
     def update_points(self, change):
         phi = phase(self.t,self.t0.value,self.P.value)
