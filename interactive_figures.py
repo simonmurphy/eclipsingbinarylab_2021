@@ -214,7 +214,7 @@ class LightCurve(widgets.HBox):
         plt.xlabel('Phase')
         plt.ylabel('Flux (normalised)')
         plt.title('$TESS$ phased light curve')
-        self.fig.canvas.toolbar_position = 'bottom'
+        self.fig.canvas.toolbar_position = 'left'
         self.fig.set_label(' ')
         # Calculate initial string length
         str_len = string_length(phi,flux)
@@ -237,13 +237,11 @@ class LightCurve(widgets.HBox):
         self.show_grid.observe(self.update_show_grid,'value')
 
         controls = widgets.VBox([self.P,self.t0,self.show_string,self.show_grid])
-        controls.layout = make_box_layout()
         out_box = widgets.Box([output])
-        out_box.layout = make_box_layout()
 
 
         # Add to children
-        self.children = [widgets.HBox([out_box,controls])]
+        self.children = [out_box,controls]
 
     def update_points(self, change):
         phi = phase(self.t,self.t0.value,self.P.value)
