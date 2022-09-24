@@ -5,6 +5,12 @@ from scipy import optimize
 import isochrones
 from matplotlib.offsetbox import AnchoredText 
 
+def make_box_layout():
+     return widgets.Layout(
+        margin='0px 10px 10px 0px',
+        padding='5px 5px 5px 5px'
+     )
+
 def phase(t,t0,P):
     """ Calculate the orbital phase for a given time and period """
     return np.array((t - t0)/P - np.floor((t - t0)/P))
@@ -208,7 +214,7 @@ class LightCurve(widgets.HBox):
         plt.xlabel('Phase')
         plt.ylabel('Flux (normalised)')
         plt.title('$TESS$ phased light curve')
-        self.fig.canvas.toolbar_position = 'left'
+        self.fig.canvas.toolbar_position = 'bottom'
         self.fig.set_label(' ')
         # Calculate initial string length
         str_len = string_length(phi,flux)
@@ -231,6 +237,10 @@ class LightCurve(widgets.HBox):
         self.show_grid.observe(self.update_show_grid,'value')
 
         controls = widgets.VBox([self.P,self.t0,self.show_string,self.show_grid])
+        controls.layout = make_box_layout()
+        out_box = widgets.Box([output])
+        out_box.layout = make_box_layout()
+
 
         # Add to children
         self.children = [output,controls]        
