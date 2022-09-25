@@ -5,11 +5,6 @@ from scipy import optimize
 import isochrones
 from matplotlib.offsetbox import AnchoredText 
 
-def make_box_layout():
-     return widgets.Layout(
-        margin='0px 10px 10px 0px',
-        padding='5px 5px 5px 5px'
-     )
 
 def phase(t,t0,P):
     """ Calculate the orbital phase for a given time and period """
@@ -237,11 +232,9 @@ class LightCurve(widgets.HBox):
         self.show_grid.observe(self.update_show_grid,'value')
 
         controls = widgets.VBox([self.P,self.t0,self.show_string,self.show_grid])
-        out_box = widgets.Box([output])
-
 
         # Add to children
-        self.children = [out_box,controls]
+        self.children = [output,controls]
 
     def update_points(self, change):
         phi = phase(self.t,self.t0.value,self.P.value)

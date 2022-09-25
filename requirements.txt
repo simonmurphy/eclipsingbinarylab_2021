@@ -1,7 +1,7 @@
-numpy
-scipy 
-astropy
-matplotlib
-ipywidgets
-ipympl
+numpy == 1.18.1
+scipy == 1.4.1
+astropy == 4.0
+matplotlib == 3.1.1
+ipywidgets == 7.5.1
+ipympl == 0.5.7
 nodejs
